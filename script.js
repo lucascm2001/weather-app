@@ -38,7 +38,7 @@ async function weatherAPI(city) {
     const time1 = performance.now();
     const apiKey = 'fbdf1d0dbdd04b99a2b23301242502';
     const baseURL = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-    const weatherData = await fetch(baseURL);
+    const weatherData = await fetch(baseURL, { mode: 'cors' });
     processJSON(await weatherData.json());
     const time2 = performance.now();
     console.log(time2 - time1);
